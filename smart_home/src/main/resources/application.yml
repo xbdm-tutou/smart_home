@@ -1,0 +1,59 @@
+# 服务器
+server:
+  port: 8088
+
+# spring
+spring:
+  # 数据连接池
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/smart_home?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    #druid 连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+  # 上传服务
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+
+  #jpa
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        ddl-auto : validate                 # Hibernate ddl auto (create, create-drop, validate, update)
+    show-sql: true
+
+  # 邮箱
+  mail:
+    host: smtp.qq.com
+    username: 2683584042@qq.com
+    password: hqgklwqrzyzodjbj
+    port: 465
+    properties.smtp.auth: true
+    properties.smtp.timeout: 2500
+    properties.mail.smtp.ssl.enable: true
+
+# 日志信息
+logging:
+  level:
+    com:
+      springsecurity:
+        demo: DEBUG
+    org:
+      hibernate: WARN
+      springframework: WARN
+
+# 上传路径
+upload:
+  dir : D:/Study/Java/smart_home/target/classes/static/images/
+
+# 图片网络访问路径
+img:
+  imgURL: http://localhost:8088/images/
